@@ -4,6 +4,10 @@ module Geometry
       Segment leftbottom, righttop
     end
 
+    def center
+      diagonal.mid_point
+    end
+
     def contains?(point)
       point.x.between?(leftbottom.x, righttop.x) && point.y.between?(leftbottom.y, righttop.y)
     end

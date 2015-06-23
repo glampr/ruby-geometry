@@ -8,6 +8,10 @@ module Geometry
                Point.new_by_array(point2_coordinates))
     end
 
+    def mid_point
+      Point.new(point1.x + (point2.x - point1.x) / 2, point1.y + (point2.y - point1.y) / 2)
+    end
+
     def leftmost_endpoint
       ((point1.x <=> point2.x) == -1) ? point1 : point2
     end
