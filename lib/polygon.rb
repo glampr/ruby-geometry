@@ -13,7 +13,7 @@ module Geometry
     def bounding_box
       leftbottom = Point vertices.map(&:x).min, vertices.map(&:y).min
       righttop = Point vertices.map(&:x).max, vertices.map(&:y).max
-      
+
       BoundingBox.new leftbottom, righttop
     end
 

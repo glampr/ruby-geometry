@@ -1,7 +1,7 @@
 module Geometry
   class PointInPolygon < Struct.new(:point, :polygon)
     extend Memoist
-    
+
     def inside?
       point_location == :inside
     end
@@ -45,14 +45,14 @@ module Geometry
     def good_ray?(ray)
       edges.none? { |edge| !edge.length.zero? && edge.parallel_to?(ray) } && vertices.none? { |vertex| ray.contains_point?(vertex) }
     end
-    
+
     def intersection_count(ray)
       edges.select { |edge| edge.intersects_with?(ray) }.size
     end
-    
+
     def random_ray
       random_direction = rand * (2 * Math::PI)
-      
+
       ray_endpoint = Point sufficient_ray_radius * Math.cos(random_direction), sufficient_ray_radius * Math.sin(random_direction)
       Segment point, ray_endpoint
     end

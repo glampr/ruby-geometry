@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'geometry'
 
-class DistanceTest < MiniTest::Unit::TestCase
+class DistanceTest < Minitest::Test
   include Geometry
 
   def test_trivial_cases    

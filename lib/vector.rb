@@ -2,10 +2,10 @@ module Geometry
   class Vector < Struct.new(:x, :y)
     def ==(vector)
       x === vector.x && y === vector.y
-    end        
-    
+    end
+
     # Modulus of vector. Also known as length, size or norm
-    def modulus      
+    def modulus
       Math.hypot(x ,y)
     end
 
@@ -22,7 +22,7 @@ module Geometry
     def scalar_product(vector)
       x * vector.x + y * vector.y
     end
-    
+
     def collinear_with?(vector)
       cross_product(vector) === 0
     end
@@ -35,16 +35,16 @@ module Geometry
       self + (-1) * vector
     end
 
-    def *(scalar)      
+    def *(scalar)
       Vector.new(x * scalar, y * scalar)
     end
 
-    def coerce(scalar)      
+    def coerce(scalar)
       if scalar.is_a?(Numeric)
         [self, scalar]
       else
         raise ArgumentError, "Vector: cannot coerce #{scalar.inspect}"
-      end             
+      end
     end
   end
 end

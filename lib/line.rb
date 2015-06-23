@@ -1,7 +1,7 @@
 module Geometry
   class Line < Struct.new(:point1, :point2)
     def self.new_by_arrays(point1_coordinates, point2_coordinates)
-      self.new(Point.new_by_array(point1_coordinates), 
+      self.new(Point.new_by_array(point1_coordinates),
                Point.new_by_array(point2_coordinates))
     end
 
@@ -36,7 +36,7 @@ module Geometry
 
       slope == other.slope
     end
-    
+
     def vertical?
       if slope.infinite?
         return true
